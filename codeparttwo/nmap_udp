@@ -1,0 +1,1 @@
+# Nmap 7.97 scan initiated Sun Oct 26 01:56:04 2025 as: nmap -sU -p- -T4 -o nmap_udp 10.10.11.82

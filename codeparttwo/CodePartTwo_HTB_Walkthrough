@@ -1,0 +1,12 @@
+Code-Part-Two ==>
+=============
+- Scanned the tcp ports and found 22 and 8000.
+- Registered the user and logged-in.
+- On there is code emulator for JS.
+- tried some tricks but since it's just a JS enulator then we can't interact with the Backend.(some signatures for SSTI {{7*7}})
+- Then Fuzzed the directories and found the zip file from downloads (app.zip).
+- Analyzed the files and found that it's the same application code-base and found a secret-for SQLITE but no use and then saw that there is a js2py.eval_js(code) on code enumator.
+- looked into the requirements file and found the js2py module then check the internet for the possible exploits and found a https://github.com/advisories/GHSA-r9pp-r4xf-597r and this script didn't work directly so extracted the payload and in the first line of cmd modified to our own ip and port of attacker machine in base64 
+- and got the shell on nc on attacker system.
+- then it was just a app user access with no privileges so tried the linpeas for complete enum for priv-esc and in the same app directory found the instance/users.db and extracted the hashes from it in md5 and got the other users password logged in though the stable ssh session and got the user flag.
+- Now again ran the linpeas and found that this user has a script in it's sudoers file then researched and modified the conf file path paramenter to /root directory and then ran it with the -c option and backedup the files and the used the -dump /root and got all the root files like ssh-key and root flag.
