@@ -1,0 +1,4 @@
+# Nmap 7.97 scan initiated Tue Oct 28 15:13:17 2025 as: nmap -p- -T4 -oA nmap_xml 10.10.11.92
+Host: 10.10.11.92 (conversor.htb)	Status: Up
+Host: 10.10.11.92 (conversor.htb)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+# Nmap done at Tue Oct 28 15:45:31 2025 -- 1 IP address (1 host up) scanned in 1934.01 seconds

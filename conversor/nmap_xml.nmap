@@ -1,0 +1,10 @@
+# Nmap 7.97 scan initiated Tue Oct 28 15:13:17 2025 as: nmap -p- -T4 -oA nmap_xml 10.10.11.92
+Warning: 10.10.11.92 giving up on port because retransmission cap hit (6).
+Nmap scan report for conversor.htb (10.10.11.92)
+Host is up (0.100s latency).
+Not shown: 64744 closed tcp ports (conn-refused), 789 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+# Nmap done at Tue Oct 28 15:45:31 2025 -- 1 IP address (1 host up) scanned in 1934.01 seconds

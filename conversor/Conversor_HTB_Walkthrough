@@ -1,0 +1,18 @@
+Conversor ==>
+=========
+1. Scanned the Ip found two ports:- 22, 80. (Nothing exploitable on service level).
+2. Accessed the Ip in browser and got the domain in the browser url-bar. (Added the domain in the hosts file).
+3. Fuzzed the subdomains and directory bruteforcing but nothing found.
+4. Accessed the web-application checked the page source code but nothing interesting, Surfed the other pages and locations and found the team names so took the note of them and also got the source-code file from there.
+5. Analyzed the source code file for hardcoded secrets but nothing special then checked the other files and found out that they are related to some web application.
+6. Then shifted my focus towards the web-login and thried the SQLi but nothing then tried to register and then logged-in the application and found a portal for converting the nmap-xml scan results into the attractive gui page with the help of the xslt format file and also got the test file of xslt file from there only.
+7. Then tried to test the XXE on the xlm doc and i was able to call the created variable but was not able to call the external-entity(files or other url-requests) getting the error.
+8. Now this application and the downloaded sourcecode perfectly matched means the source code is from the actual application.
+9. The install.md file had a location of cron-jobs from /scripts directory which was executing all the .py files in every 60-seconds.
+10. Now again analyzed the app.py and found that there is a xslt issue without any sanitization and we have to exploit that function, then created the malicious xslt file with python reverse-shell code.(You can find the malicious xslt file in the repo).
+11. Then created the listner on the given port and uploaded it with the valid xml file and clicked the convert button and then waited for some seconds and got the shell on ncat.
+12. Now ran the linpeas and collected the information with the current privileges and found the pkexec with suid bit but it was nothing then checked the instance/users.db with the help of sqlite3 and found some hashes and there was a hash of the valid user used the hashcat with rockyou.txt and got the password.
+13. Used the new password of the user and logged-in with the help of ssh and got the user flag and then again ran the linpeas and got one interesting file in sudoers file.
+14. Used that script with it's -c option on shell.sh which was holding the echo 'system('/bin/bash')' and got the root access and got the root flag.
+
+(ALL THE FILES SCANS AND SCRIPTS ARE THERE IN THE REPO)
